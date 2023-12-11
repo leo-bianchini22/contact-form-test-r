@@ -40,6 +40,19 @@
     text-align: left;
 }
 
+.form__error_name {
+    height: 10px;
+    color: red;
+    text-align: left;
+    width: 50%;
+}
+
+.form__error-name {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .form__input-text__name {
     display: flex;
     justify-content: space-between;
