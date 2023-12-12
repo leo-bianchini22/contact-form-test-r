@@ -42,11 +42,16 @@
 
 .form__group-content input{
     width: 100%;
-    margin-bottom: 20px;
     padding: 10px 20px;
     border: none;
     color: rgb(120, 100, 80);
     background-color: #fafafa;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
 }
 
 .register__button {
