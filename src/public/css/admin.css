@@ -1,0 +1,121 @@
+.header__logout {
+    text-decoration: none;
+    border: 1px solid rgb(200, 190, 175);
+    color: rgb(200, 190, 175);
+    background-color: rgb(245, 240, 235);
+    padding: 2px 20px;
+    position: absolute;
+    right: 40px;
+    top: 30px;
+}
+
+.admin__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.admin__ttl {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(120, 100, 80);
+}
+
+.form {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.search-form__item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.search-form__item-input {
+    padding: 10px;
+    width: 40%;
+    border: 1px solid rgb(200, 190, 175);
+    color: rgb(120, 100, 80);
+    background-color: rgb(245, 245, 245);
+}
+
+.search-form__button-submit {
+    position: absolute;
+    border: none;
+    padding: 10px;
+    color: rgb(120, 100, 80);
+    background-color: rgb(245, 245, 245);
+}
+
+.search-form__item-select {
+    padding: 10px 5px;
+    border: 1px solid rgb(200, 190, 175);
+    color: rgb(120, 100, 80);
+    background-color: rgb(245, 240, 235);
+}
+
+.search-form__item-date {
+    padding: 10px 5px;
+    background-color: rgb(245, 240, 235);
+    border: none;
+    border: 1px solid rgb(200, 190, 175);;
+}
+
+.admin-table__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.admin-table__header a {
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: rgb(245, 240, 235);
+    color: rgb(120, 100, 80);
+}
+
+.page {
+    padding: 5px 10px;
+    color: rgb(120, 100, 80);
+}
+
+.admin-table {
+    width: 100%;
+}
+
+.admin-table__inner {
+    border: 1px solid rgb(200, 190, 175);
+    width: 100%;
+}
+
+.admin-table__row__ttl {
+    background-color: rgb(120, 100, 80);
+    border-bottom: 1px solid rgb(200, 190, 175);
+}
+
+.admin-table__row {
+    border-bottom: 1px solid rgb(200, 190, 175);
+}
+
+.admin-table__row__ttl td {
+    padding: 20px 30px;
+    color: #fff;
+}
+
+.admin-table__row td {
+    padding: 30px;
+    color: rgb(120, 100, 80);
+}
+
+.admin-table__row__ttl td:last-of-type,
+.admin-table__row td:last-of-type {
+    padding-left: 60px;
+}
+
+.detail-button {
+    border-color: rgb(200, 190, 175);
+    background-color: #fff;
+    color: rgb(200, 190, 175);
+}

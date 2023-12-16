@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use App\Models\Category;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $categories = Category::all();
+        $contacts = Contact::all();
+
+        return view('index', compact('contacts', 'categories'));
     }
 
     public function confirm(ContactRequest $request)
@@ -27,7 +31,9 @@ class ContactController extends Controller
             'content'
         ]);
 
-        return view('confirm', compact('contact'));
+        $categories = $request->all();
+
+        return view('confirm', compact('contact', 'categories'));
     }
 
     public function store(ContactRequest $request)
