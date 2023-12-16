@@ -22,4 +22,8 @@
 * MySQL 15.1
 
 ## URL  
-* 開発環境：http://localhost/
+開発環境
+* http://localhost/
+* http://localhost/login
+phpMyAdmin
+* http://localhost:8080/
