@@ -21,6 +21,9 @@
 * Laravel 8.83.27
 * MySQL 15.1
 
+## ER図　　
+![スクリーンショット (43)](https://github.com/leo-bianchini22/contact-form-test/assets/149698762/2bbef3e3-d6d8-4c28-869b-d3551df18460)
+
 ## URL  
 開発環境
 * http://localhost/
