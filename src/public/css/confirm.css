@@ -39,11 +39,27 @@
     border-bottom: 1px solid #ddd;
 }
 
+.confirm-table__name {
+    display: flex;
+    padding: 15px 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.confirm-table__name input {
+    color: rgb(120, 100, 80);
+    outline: none;
+    border: none;
+}
+
 .confirm-table__text input {
     color: rgb(120, 100, 80);
     width: 100%;
     outline: none;
     border: none;
+}
+
+.confirm-table__text:last-of-type {
+    flex-wrap: wrap;
 }
 
 .confirm-table__row:last-child .confirm-table__ttl,

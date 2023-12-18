@@ -95,6 +95,27 @@
     appearance: none;
 }
 
+.form__input-tell {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tell__span {
+    padding: 10px 20px;
+}
+
+.form__input-tell input {
+    width: 30%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    background-color: #fafafa;
+    color: rgb(120, 100, 80);
+
+    appearance: none;
+}
+
 .form__input-text textarea {
     height: 140px;
     resize: none;

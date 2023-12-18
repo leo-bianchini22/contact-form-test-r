@@ -83,8 +83,10 @@
                 <span class="form__label-required">※</span>
             </div>
             <div class="form__group-content">
-                <div class="form__input-text">
-                    <input type="text" name="tel" placeholder="例:08012345678" value="{{ old('tel') }}" />
+                <div class="form__input-tell">
+                    <input type="text" name="tel1" placeholder="例:080" value="{{ old('tel1') }}" /><span class="tell__span">-</span>
+                    <input type="text" name="tel2" placeholder="例:1234" value="{{ old('tel2') }}" /><span class="tell__span">-</span>
+                    <input type="text" name="tel3" placeholder="例:5678" value="{{ old('tel3') }}" />
                 </div>
                 <div class="form__error">
                     @error('tel')
