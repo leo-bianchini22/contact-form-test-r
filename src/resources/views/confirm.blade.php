@@ -35,7 +35,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__ttl">電話番号</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="tel" value="{{ $contact['tel'] }}" readonly>
+                        <input type="text" name="tel" value="{{ $tel['tel1'] }}{{ $tel['tel2'] }}{{ $tel['tel3'] }}" readonly>
                     </td>
                 </tr>
                 <tr class="confirm-table__row">

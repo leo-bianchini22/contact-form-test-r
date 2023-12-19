@@ -24,16 +24,21 @@ class ContactController extends Controller
             'last_name',
             'gender',
             'email',
-            'tel',
             'address',
             'building',
             'detail',
             'content'
         ]);
 
+        $tel = $request->only([
+            'tel1',
+            'tel2',
+            'tel3'
+        ]);
+
         $categories = $request->all();
 
-        return view('confirm', compact('contact', 'categories'));
+        return view('confirm', compact('contact','tel', 'categories'));
     }
 
     public function store(ContactRequest $request)
