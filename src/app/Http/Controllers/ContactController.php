@@ -38,7 +38,7 @@ class ContactController extends Controller
 
         $categories = $request->all();
 
-        return view('confirm', compact('contact','tel', 'categories'));
+        return view('confirm', compact('contact','tel', 'categories',));
     }
 
     public function store(ContactRequest $request)
@@ -46,7 +46,6 @@ class ContactController extends Controller
         $contact = $request->only([
             'first_name',
             'last_name',
-            'gender',
             'email',
             'tel',
             'address',
@@ -55,6 +54,16 @@ class ContactController extends Controller
             'content'
         ]);
 
+        $gender = $request['gender'];
+        if($gender == '男性'){
+            $gender = 1;
+        }elseif($gender == '女性'){
+            $gender = 2;
+        }elseif($gender == 'その他'){
+            $gender = 3;
+        }
+
+        $contact['gender'] = $gender;
         Contact::create($contact);
 
         return view('thanks');

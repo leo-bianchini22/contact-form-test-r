@@ -53,7 +53,7 @@
                 <tr class="confirm-table__row">
                     <th class="confirm-table__ttl">お問い合わせの種類</th>
                     <td class="confirm-table__text">
-                        <input type="text" name="content" value="{{ $categories['content'] }}" readonly>
+                        <input type="text" name="" value="{{ $categories['content'] }}" readonly>
                     </td>
                 </tr>
                 <tr class="confirm-table__row">

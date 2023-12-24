@@ -17,18 +17,4 @@ class AuthController extends Controller
         return view('admin', compact('contacts', 'categories',));
     }
 
-    public function find()
-    {
-        $contacts = Contact::all();
-        $categories = Category::all();
-
-        return view('admin', compact('contacts', 'categories'));
-    }
-    public function search(Request $request)
-    {
-        $contacts = Contact::with('category')->categorySearch($request->category_id)->keywordSearch($request->keyword)->get();
-        $categories = Category::all();
-
-        return view('admin', compact('contacts', 'categories'));
-    }
 }

@@ -48,9 +48,9 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input-radio">
-                    <input type="radio" name="gender" id="1" value="男性" checked><label>男性</label>
-                    <input type="radio" name="gender" id="2" value="女性"><label>女性</label>
-                    <input type="radio" name="gender" id="3" value="その他"><label>その他</label>
+                    <input type="radio" name="gender" value="男性" checked><label>男性</label>
+                    <input type="radio" name="gender" value="女性"><label>女性</label>
+                    <input type="radio" name="gender" value="その他"><label>その他</label>
                 </div>
                 <div class="form__error">
                     @error('gender')
@@ -139,7 +139,7 @@
                     <select name="content">
                         <option value="" selected hidden>選択してください</option>
                         @foreach($categories as $category)
-                        <option value="{{ $category['content'] }}">{{ $category['content'] }}</option>
+                        <option id="category_id" value="{{ $category['content'] }}">{{ $category['content'] }}</option>
                         @endforeach
                     </select>
                 </div>
