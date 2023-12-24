@@ -18,23 +18,25 @@
     </div>
     <form class="form" action="/admin/search" method="get">
         @csrf
-        <div class="search-form__item">
-            <input class="search-form__item-input" type="text" name="keyword" value="{{ old('keyword') }}" placeholder="名前やメールアドレスを入力してください">
-            <button class="search-form__button-submit" type="submit">検索</button>
+        <div class="search-form__item-content">
+            <div class="search-form__item">
+                <input class="search-form__item-input" type="text" name="keyword" value="{{ old('keyword') }}" placeholder="名前やメールアドレスを入力してください">
+                <button class="search-form__button-submit" type="submit">検索</button>
+            </div>
             <select class="search-form__item-select" name="gender">
                 <option value="" hidden selected>性別</option>
                 <option value="">全て</option>
-                <option value="男性">男性</option>
-                <option value="女性">女性</option>
-                <option value="その他">その他</option>
+                <option value="1">男性</option>
+                <option value="2">女性</option>
+                <option value="3">その他</option>
             </select>
-            <select class="search-form__item-select" name="category_id">
+            <!-- <select class="search-form__item-select" name="category_id">
                 <option value="" selected>お問い合わせ内容の種類</option>
                 @foreach ($categories as $category)
-                <option id="category_id" value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                <option id="category_id" value="{{ $category['content'] }}">{{ $category['content'] }}</option>
                 @endforeach
             </select>
-            <input type="date" class="search-form__item-date">
+            <input type="date" class="search-form__item-date"> -->
         </div>
         <div class="admin-table__header">
             <a href="">エクスポート</a>
@@ -51,10 +53,10 @@
                 </tr>
                 @foreach($contacts as $contact)
                 <tr class="admin-table__row">
-                    <td>{{ $contact['first_name'] }} {{ $contact ['last_name'] }}</td>
-                    <td>{{ $contact['gender'] }}</td>
-                    <td>{{ $contact['email'] }}</td>
-                    <td>{{ $category['contact'] }}</td>
+                    <td>{{ $contact->first_name }} {{ $contact->last_name }}</td>
+                    <td>{{ $contact->gender }}</td>
+                    <td>{{ $contact->email }}</td>
+                    <td>{{ $category->content }}</td>
                     <td><button class="detail-button">詳細</button></td>
                 </tr>
                 @endforeach
