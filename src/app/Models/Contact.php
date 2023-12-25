@@ -22,6 +22,11 @@ class Contact extends Model
         'detail'
     ];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 
     public function scopeCategorySearch($query, $gender)
     {
@@ -36,8 +41,4 @@ class Contact extends Model
         }
     }
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 }

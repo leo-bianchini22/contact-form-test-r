@@ -13,15 +13,15 @@ class AuthController extends Controller
     {
         $contacts = Contact::all();
 
-        $gender = $contacts['gender'];
-        if ($contacts->gender == 1) {
-            $gender = '男性';
-        } elseif ($contacts->gender == 2) {
-            $gender = '女性';
-        } elseif ($contacts->gender == 3) {
-            $gender = 'その他';
+        foreach($contacts as $contact){
+            if($contact['gender'] == 1){
+                $contact['gender'] = '男性';
+            }elseif($contact['gender'] == 2){
+                $contact['gender'] = '女性';
+            } elseif ($contact['gender'] == 3) {
+                $contact['gender'] = 'その他';
+            }
         }
-        $contacts['gender'] = $gender;
 
         $categories = Category::all();
 
@@ -31,6 +31,17 @@ class AuthController extends Controller
     public function search(Request $request)
     {
         $contacts = Contact::with('category')->CategorySearch($request->gender)->KeywordSearch($request->keyword)->get();
+
+        foreach ($contacts as $contact) {
+            if ($contact['gender'] == 1) {
+                $contact['gender'] = '男性';
+            } elseif ($contact['gender'] == 2) {
+                $contact['gender'] = '女性';
+            } elseif ($contact['gender'] == 3) {
+                $contact['gender'] = 'その他';
+            }
+        }
+
         $categories = Category::all();
 
         return view('admin', compact('contacts', 'categories'));
