@@ -65,6 +65,18 @@ class ContactController extends Controller
             $gender = 3;
         }
 
+        $category_id = $request['category_id'];
+        if ($category_id == '商品のお届けについて') {
+            $category_id = 1;
+        } elseif ($category_id == '商品の交換について') {
+            $category_id = 2;
+        } elseif ($category_id == '商品トラブル') {
+            $category_id = 3;
+        } elseif ($category_id == 'ショップへのお問い合わせ') {
+            $category_id = 4;
+        }
+
+        $contact['category_id'] = $category_id;
         $contact['gender'] = $gender;
         Contact::create($contact);
 

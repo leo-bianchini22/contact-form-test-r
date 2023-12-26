@@ -56,7 +56,7 @@
                     <td>{{ $contact->first_name }} {{ $contact->last_name }}</td>
                     <td>{{ $contact->gender }}</td>
                     <td>{{ $contact->email }}</td>
-                    <td>{{ $category->content }}</td>
+                    <td>{{ $contact->category->content }}</td>
                     <td><button class="detail-button">詳細</button></td>
                 </tr>
                 @endforeach
