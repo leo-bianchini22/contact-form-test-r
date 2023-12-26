@@ -20,6 +20,7 @@ class ContactController extends Controller
     public function confirm(ContactRequest $request)
     {
         $contact = $request->only([
+            'category_id',
             'first_name',
             'last_name',
             'gender',
@@ -44,6 +45,7 @@ class ContactController extends Controller
     public function store(ContactRequest $request)
     {
         $contact = $request->only([
+            'category_id',
             'first_name',
             'last_name',
             'email',
