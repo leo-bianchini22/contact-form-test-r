@@ -30,13 +30,13 @@
                 <option value="2">女性</option>
                 <option value="3">その他</option>
             </select>
-            <!-- <select class="search-form__item-select" name="category_id">
+            <select class="search-form__item-select" name="category_id">
                 <option value="" selected>お問い合わせ内容の種類</option>
                 @foreach ($categories as $category)
-                <option id="category_id" value="{{ $category['content'] }}">{{ $category['content'] }}</option>
+                <option id="category_id" value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                 @endforeach
             </select>
-            <input type="date" class="search-form__item-date"> -->
+            <!-- <input type="date" class="search-form__item-date"> -->
         </div>
         <div class="admin-table__header">
             <a href="">エクスポート</a>
