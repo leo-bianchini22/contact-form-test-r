@@ -40,7 +40,7 @@
         </div>
         <div class="admin-table__header">
             <a href="">エクスポート</a>
-            <div class="page">ページネーション</div>
+            <div class="paginate"></div>
         </div>
         <div class="admin-table">
             <table class="admin-table__inner">

@@ -27,7 +27,6 @@ class Contact extends Model
         return $this->belongsTo(Category::class);
     }
 
-
     public function scopeCategorySearch($query, $gender)
     {
         if (!empty($gender)) {

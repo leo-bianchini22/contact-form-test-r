@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function admin(Request $request)
+    public function admin()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::paginate(10);
 
         foreach($contacts as $contact){
             if($contact['gender'] == 1){
