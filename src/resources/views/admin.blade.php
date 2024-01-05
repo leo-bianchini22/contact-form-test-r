@@ -40,7 +40,7 @@
         </div>
         <div class="admin-table__header">
             <a href="">エクスポート</a>
-            <div class="paginate"></div>
+            <div class="paginate">{{ $contacts->render() }}</div>
         </div>
         <div class="admin-table">
             <table class="admin-table__inner">
