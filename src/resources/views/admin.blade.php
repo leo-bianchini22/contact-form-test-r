@@ -36,32 +36,32 @@
                 <option id="category_id" value="{{ $category['id'] }}">{{ $category['content'] }}</option>
                 @endforeach
             </select>
-            <!-- <input type="date" class="search-form__item-date"> -->
+            <input type="date" class="search-form__item-date" name="created_at">
         </div>
         <div class="admin-table__header">
             <a href="">エクスポート</a>
-            <div class="paginate">{{ $contacts->render() }}</div>
-        </div>
-        <div class="admin-table">
-            <table class="admin-table__inner">
-                <tr class="admin-table__row__ttl">
-                    <td>お名前</td>
-                    <td>性別</td>
-                    <td>メールアドレス</td>
-                    <td>お問い合わせの種類</td>
-                    <td></td>
-                </tr>
-                @foreach($contacts as $contact)
-                <tr class="admin-table__row">
-                    <td>{{ $contact->first_name }} {{ $contact->last_name }}</td>
-                    <td>{{ $contact->gender }}</td>
-                    <td>{{ $contact->email }}</td>
-                    <td>{{ $contact->category->content }}</td>
-                    <td><button class="detail-button">詳細</button></td>
-                </tr>
-                @endforeach
-            </table>
-        </div>
+            <div class="paginate">{{ $contacts->render('pagination::bootstrap-4') }}</div>
+            </div>
+            <div class="admin-table">
+                <table class="admin-table__inner">
+                    <tr class="admin-table__row__ttl">
+                        <td>お名前</td>
+                        <td>性別</td>
+                        <td>メールアドレス</td>
+                        <td>お問い合わせの種類</td>
+                        <td></td>
+                    </tr>
+                    @foreach($contacts as $contact)
+                    <tr class="admin-table__row">
+                        <td>{{ $contact->first_name }} {{ $contact->last_name }}</td>
+                        <td>{{ $contact->gender }}</td>
+                        <td>{{ $contact->email }}</td>
+                        <td>{{ $contact->category->content }}</td>
+                        <td><button class="detail-button">詳細</button></td>
+                    </tr>
+                    @endforeach
+                </table>
+            </div>
     </form>
 </div>
 @endsection

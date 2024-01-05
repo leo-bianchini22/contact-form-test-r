@@ -30,7 +30,7 @@ class AuthController extends Controller
 
     public function search(Request $request)
     {
-        $contacts = Contact::with('category')->CategorySearch($request->gender)->KeywordSearch($request->keyword)->get()->paginate(10);
+        $contacts = Contact::with('category')->GenderSearch($request->gender)->CategorySearch($request->category_id)->CreatedSearch($request->created_at)->KeywordSearch($request->keyword)->paginate(10);
 
         foreach ($contacts as $contact) {
             if ($contact['gender'] == 1) {
