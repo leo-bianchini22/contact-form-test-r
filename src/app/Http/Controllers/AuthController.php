@@ -44,6 +44,10 @@ class AuthController extends Controller
 
         $categories = Category::all();
 
+        if ($request->input('reset') == 'reset') {
+            return redirect('/admin');
+        }
+
         return view('admin', compact('contacts', 'categories'));
     }
 

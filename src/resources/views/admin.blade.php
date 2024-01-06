@@ -21,7 +21,7 @@
         <div class="search-form__item-content">
             <div class="search-form__item">
                 <input class="search-form__item-input" type="text" name="keyword" value="{{ old('keyword') }}" placeholder="名前やメールアドレスを入力してください">
-                <button class="search-form__button-submit" type="submit">検索</button>
+                <button class="search-form__button-submit" type="submit"><img src="{{ asset('img/search-icon.png') }}" alt=""></button>
             </div>
             <select class="search-form__item-select" name="gender">
                 <option value="" hidden selected>性別</option>
@@ -41,27 +41,30 @@
         <div class="admin-table__header">
             <a href="">エクスポート</a>
             <div class="paginate">{{ $contacts->render('pagination::bootstrap-4') }}</div>
-            </div>
-            <div class="admin-table">
-                <table class="admin-table__inner">
-                    <tr class="admin-table__row__ttl">
-                        <td>お名前</td>
-                        <td>性別</td>
-                        <td>メールアドレス</td>
-                        <td>お問い合わせの種類</td>
-                        <td></td>
-                    </tr>
-                    @foreach($contacts as $contact)
-                    <tr class="admin-table__row">
-                        <td>{{ $contact->first_name }} {{ $contact->last_name }}</td>
-                        <td>{{ $contact->gender }}</td>
-                        <td>{{ $contact->email }}</td>
-                        <td>{{ $contact->category->content }}</td>
-                        <td><button class="detail-button">詳細</button></td>
-                    </tr>
-                    @endforeach
-                </table>
-            </div>
+        </div>
+        <div class="admin-table">
+            <table class="admin-table__inner">
+                <tr class="admin-table__row__ttl">
+                    <td>お名前</td>
+                    <td>性別</td>
+                    <td>メールアドレス</td>
+                    <td>お問い合わせの種類</td>
+                    <td></td>
+                </tr>
+                @foreach($contacts as $contact)
+                <tr class="admin-table__row">
+                    <td>{{ $contact->first_name }} {{ $contact->last_name }}</td>
+                    <td>{{ $contact->gender }}</td>
+                    <td>{{ $contact->email }}</td>
+                    <td>{{ $contact->category->content }}</td>
+                    <td><button class="detail-button">詳細</button></td>
+                </tr>
+                @endforeach
+            </table>
+        </div>
+        <div class="admin__reset">
+            <button name="reset">リセット</button>
+        </div>
     </form>
 </div>
 @endsection

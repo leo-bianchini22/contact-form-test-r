@@ -74,7 +74,7 @@
     text-align: center;
 }
 
-.form__button button {
+.form__button-submit {
     width: 10%;
     padding: 10px;
     margin: auto 20px;
@@ -86,9 +86,12 @@
     cursor: pointer;
 }
 
-.form__button a {
+.form__button-back {
     width: 10%;
     padding: 10px;
     margin: auto 20px;
     color: rgb(120, 100, 80);
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid rgb(120, 100, 80);
 }

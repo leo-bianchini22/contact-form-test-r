@@ -80,6 +80,10 @@ class ContactController extends Controller
         $contact['gender'] = $gender;
         Contact::create($contact);
 
+        if ($request->input('back') == 'back') {
+            return redirect('/')->withInput();
+        }
+
         return view('thanks');
     }
 }

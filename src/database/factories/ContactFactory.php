@@ -21,7 +21,7 @@ class ContactFactory extends Factory
             'email' => $this->faker->safeEmail,
             'tel' => $this->faker->phoneNumber,
             'address' => $this->faker->city,
-            'detail' => $this->faker->text(10),
+            'detail' => $this->faker->text(20),
             'category_id' => $this->faker->numberBetween(1, 4),
         ];
     }

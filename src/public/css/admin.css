@@ -37,7 +37,7 @@
 }
 
 .search-form__item {
-    width: 40%;
+    width: 35%;
     display: flex;
 }
 
@@ -45,18 +45,21 @@
     padding: 10px;
     width: 100%;
     border: 1px solid rgb(200, 190, 175);
+    border-right: none;
     color: rgb(120, 100, 80);
     background-color: rgb(245, 245, 245);
 }
 
 .search-form__button-submit {
-    position: relative;
-    right: 55px;
-    border: none;
-    width: 60px;
+    border: 1px solid rgb(200, 190, 175);
+    border-left: none;
+    width: 50px;
     padding: 10px;
-    color: rgb(120, 100, 80);
     background-color: rgb(245, 245, 245);
+}
+
+.search-form__button-submit img {
+    width: 16px;
 }
 
 .search-form__item-select {
@@ -102,6 +105,7 @@
 
 .admin-table {
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .admin-table__inner {
@@ -119,12 +123,12 @@
 }
 
 .admin-table__row__ttl td {
-    padding: 20px 30px;
+    padding: 25px;
     color: #fff;
 }
 
 .admin-table__row td {
-    padding: 30px;
+    padding: 30px 25px;
     color: rgb(120, 100, 80);
 }
 
@@ -137,4 +141,20 @@
     border-color: rgb(200, 190, 175);
     background-color: #fff;
     color: rgb(200, 190, 175);
+}
+
+.admin__reset {
+    text-align: center;
+}
+
+.admin__reset button {
+    width: 10%;
+    padding: 10px;
+    margin: auto 20px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    background: rgb(120, 100, 80);
+    color: #fff;
+    cursor: pointer;
 }

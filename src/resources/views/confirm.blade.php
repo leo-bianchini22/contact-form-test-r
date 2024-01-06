@@ -66,7 +66,7 @@
         </div>
         <div class="form__button">
             <button class="form__button-submit" type="submit">送信</button>
-            <a href="/">修正</a>
+            <button type="submit" class="form__button-back" name="back" value="back">修正</button>
         </div>
     </form>
 </div>
