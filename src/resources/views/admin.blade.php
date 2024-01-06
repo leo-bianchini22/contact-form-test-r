@@ -16,7 +16,7 @@
     <div class="admin__ttl">
         Admin
     </div>
-    <form class="form" action="/admin/search" method="get">
+    <form class="search-form" action="/admin/search" method="get">
         @csrf
         <div class="search-form__item-content">
             <div class="search-form__item">
@@ -38,6 +38,10 @@
             </select>
             <input type="date" class="search-form__item-date" name="created_at">
         </div>
+    </form>
+
+    <form class="form" action="/admin/delete" method="get">
+        @csrf
         <div class="admin-table__header">
             <a href="">エクスポート</a>
             <div class="paginate">{{ $contacts->render('pagination::bootstrap-4') }}</div>
@@ -58,8 +62,8 @@
                     <td>{{ $contact->email }}</td>
                     <td>{{ $contact->category->content }}</td>
                     <td>
-                        <div class="modal-open"><a href="#modal">詳細</a></div>
-                        <div class="modal" id="modal">
+                        <a class="modal-open" href="#{{$contact['id']}}">詳細</a>
+                        <div class="modal" id="{{$contact['id']}}">
                             <div class="modal-wrapper">
                                 <div class="modal-contents">
                                     <a href="#!" class="modal-close">✕</a>
@@ -67,52 +71,35 @@
                                         <table class="modal-table">
                                             <tr class="modal-table__row">
                                                 <th class="modal-table__ttl">お名前</th>
-                                                <td class="modal-table__text-name">
-                                                    <input type="text" name="first_name" value="{{ $contact['first_name'] }}" readonly>
-                                                    <input type="text" name="last_name" value="{{ $contact['last_name'] }}" readonly>
-                                                </td>
+                                                <td>{{$contact->first_name}} {{$contact->last_name}}</td>
                                             </tr>
                                             <tr class="modal-table__row">
                                                 <th class="modal-table__ttl">性別</th>
-                                                <td class="modal-table__text">
-                                                    <input type="text" name="gender" value="{{ $contact['gender'] }}" readonly>
-                                                </td>
+                                                <td>{{$contact->gender}}</td>
                                             </tr>
                                             <tr class="modal-table__row">
                                                 <th class="modal-table__ttl">メールアドレス</th>
-                                                <td class="modal-table__text">
-                                                    <input type="text" name="email" value="{{ $contact['email'] }}" readonly>
-                                                </td>
+                                                <td>{{$contact->email}}</td>
                                             </tr>
                                             <tr class="modal-table__row">
                                                 <th class="modal-table__ttl">電話番号</th>
-                                                <td class="modal-table__text">
-                                                    <input type="text" name="tel" value="{{ $contact['tel'] }}" readonly>
-                                                </td>
+                                                <td>{{$contact->tel}}</td>
                                             </tr>
                                             <tr class="modal-table__row">
                                                 <th class="modal-table__ttl">住所</th>
-                                                <td class="modal-table__text">
-                                                    <input type="text" name="address" value="{{ $contact['address'] }}" readonly>
-                                                </td>
+                                                <td>{{$contact->address}}</td>
                                             </tr>
                                             <tr class="modal-table__row">
                                                 <th class="modal-table__ttl">建物名</th>
-                                                <td class="modal-table__text">
-                                                    <input type="text" name="building" value="{{ $contact['building'] }}" readonly>
-                                                </td>
+                                                <td>{{$contact->building}}</td>
                                             </tr>
                                             <tr class="modal-table__row">
-                                                <th class="modal-table__ttl">お問い合わせの種類</th>
-                                                <td class="modal-table__text">
-                                                    <input type="text" name="category_id" value="{{ $contact['category_id'] }}" readonly>
-                                                </td>
+                                                <th class="modal-table__ttl">お問合せの種類</th>
+                                                <td>{{$contact->category->content}}</td>
                                             </tr>
                                             <tr class="modal-table__row">
-                                                <th class="modal-table__ttl">お問い合わせ内容</th>
-                                                <td class="modal-table__text">
-                                                    <input type="text" name="detail" value="{{ $contact['detail'] }}" readonly>
-                                                </td>
+                                                <th class="modal-table__ttl">お問合せ内容</th>
+                                                <td>{{$contact->detail}}</td>
                                             </tr>
                                         </table>
                                         <div class="delete">
@@ -127,6 +114,8 @@
                 @endforeach
             </table>
         </div>
+    </form>
+    <form action="/admin/reset" method="get">
         <div class="admin__reset">
             <button name="reset">リセット</button>
         </div>

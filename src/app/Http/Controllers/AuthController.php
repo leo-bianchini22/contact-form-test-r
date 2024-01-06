@@ -50,4 +50,15 @@ class AuthController extends Controller
 
         return view('admin', compact('contacts', 'categories'));
     }
+
+    public function reset(Request $request)
+    {
+        $request->input('reset') == 'reset';
+        return redirect('/admin');
+    }
+
+    public function delete()
+    {
+        return view('admin');
+    }
 }
