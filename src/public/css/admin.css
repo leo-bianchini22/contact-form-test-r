@@ -137,11 +137,119 @@
     padding-left: 60px;
 }
 
-.detail-button {
-    border-color: rgb(200, 190, 175);
-    background-color: #fff;
+/* モーダルここから */
+
+.modal-open a {
+    padding: 5px 10px;
+    border:1px solid rgb(200, 190, 175);
     color: rgb(200, 190, 175);
+    text-decoration: none;
 }
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modal:not(:target) {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.modal:target {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.modal .overlay {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+}
+
+.modal-wrapper {
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    max-height: 700px;
+    margin-top: 50px;
+    background-color: #fff;
+    border: 1px solid rgb(120, 100, 80);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 2px rgb(200, 190, 175);
+}
+
+.modal-contents {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.modal-content {
+    margin: 100px 50px 0;
+}
+
+.modal-table {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.modal-table__ttl {
+    text-align: left;
+}
+
+.modal-table__row td {
+    padding: 10px 20px;
+    color: rgb(120, 100, 80);
+}
+
+.modal-table__row td input {
+    border: none;
+    color: rgb(120, 100, 80);
+}
+
+.modal-table__row__ttl td:last-of-type,
+.modal-table__row td:last-of-type {
+    padding-left: 60px;
+}
+
+.delete {
+    text-align: center;
+}
+
+.delete-button {
+    color: white;
+    border: none;
+    background-color: rgb(200, 0, 0);
+    padding: 5px 10px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid rgb(200, 190, 175);;
+    border-radius: 50%;
+}
+
+/* ここまでモーダル */
 
 .admin__reset {
     text-align: center;

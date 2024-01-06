@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function admin()
+    public function admin(Request $request)
     {
         $contacts = Contact::paginate(10);
 
@@ -50,5 +50,4 @@ class AuthController extends Controller
 
         return view('admin', compact('contacts', 'categories'));
     }
-
 }
