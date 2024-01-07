@@ -76,7 +76,7 @@
     border: 1px solid rgb(200, 190, 175);;
 }
 
-.form {
+.admin-table__content {
     margin: 0 auto;
     width: 80%;
 }
@@ -85,6 +85,13 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+}
+
+.admin-table__header button {
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: rgb(245, 240, 235);
+    color: rgb(120, 100, 80);
 }
 
 .admin-table__header a {
@@ -228,7 +235,7 @@
     padding-left: 60px;
 }
 
-.delete {
+.delete-form {
     text-align: center;
 }
 

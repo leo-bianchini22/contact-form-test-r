@@ -6,6 +6,7 @@ use App\Models\Contact;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -44,11 +45,57 @@ class AuthController extends Controller
 
         $categories = Category::all();
 
-        if ($request->input('reset') == 'reset') {
-            return redirect('/admin');
-        }
-
         return view('admin', compact('contacts', 'categories'));
+    }
+
+    public function downloadCsv()
+    {
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => 'attachment; filename=contact.csv',
+            'Pragma' => 'no-cache',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Expires' => '0',
+        ];
+
+        $callback = function () {
+            $createCsvFile = fopen('php://output', 'w');
+
+            $columns = [
+                'お名前',
+                '性別',
+                'メールアドレス',
+                '電話番号',
+                '住所',
+                '建物名',
+                'お問い合わせの種類',
+                'お問い合わせ内容',
+            ];
+
+            mb_convert_variables('SJIS-win', 'UTF-8', $columns);
+
+            fputcsv($createCsvFile, $columns);
+
+            $contact = DB::table('contacts');
+
+            $contacts = $contact
+                ->select(['id', 'category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail'])
+                ->get();
+
+            foreach ($contacts as $contact) {
+                $csv = [
+                    $contact->id,
+                    $contact->name,
+                    $contact->department,
+                ];
+
+                mb_convert_variables('SJIS-win', 'UTF-8', $csv);
+
+                fputcsv($createCsvFile, $csv);
+            }
+            fclose($createCsvFile);
+        };
+        return response()->stream($callback, 200, $headers);
     }
 
     public function reset(Request $request)
@@ -57,8 +104,9 @@ class AuthController extends Controller
         return redirect('/admin');
     }
 
-    public function delete()
+    public function destroy(Request $request)
     {
-        return view('admin');
+        Contact::find($request->id)->delete();
+        return redirect('/admin');
     }
 }

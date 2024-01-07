@@ -40,10 +40,12 @@
         </div>
     </form>
 
-    <form class="form" action="/admin/delete" method="get">
-        @csrf
+    <div class="admin-table__content">
         <div class="admin-table__header">
-            <a href="">エクスポート</a>
+            <form class="downloadCsv" action="/admin/downloadCsv">
+                @csrf
+                <button>エクスポート</button>
+            </form>
             <div class="paginate">{{ $contacts->render('pagination::bootstrap-4') }}</div>
         </div>
         <div class="admin-table">
@@ -102,9 +104,12 @@
                                                 <td>{{$contact->detail}}</td>
                                             </tr>
                                         </table>
-                                        <div class="delete">
-                                            <button type="delete" class="delete-button">削除</button>
-                                        </div>
+                                        <form class="delete-form" action="/admin/delete" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $contact['id'] }}">
+                                            <button type="submit" class="delete-button">削除</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +119,7 @@
                 @endforeach
             </table>
         </div>
-    </form>
+    </div>
     <form action="/admin/reset" method="get">
         <div class="admin__reset">
             <button name="reset">リセット</button>

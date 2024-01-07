@@ -42,7 +42,7 @@ class Contact extends Model
     public function scopeCreatedSearch($query, $created_at)
     {
         if (!empty($created_at)) {
-            $query->where('created_at', 'like', '%' . $created_at);
+            $query->where('created_at', 'like', '%' . $created_at . '%');
         }
     }
     public function scopeKeywordSearch($query, $keyword)
