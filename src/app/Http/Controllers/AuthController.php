@@ -62,13 +62,15 @@ class AuthController extends Controller
             $createCsvFile = fopen('php://output', 'w');
 
             $columns = [
+                'id',
+                'category_id',
                 'お名前',
+                '',
                 '性別',
                 'メールアドレス',
                 '電話番号',
                 '住所',
                 '建物名',
-                'お問い合わせの種類',
                 'お問い合わせ内容',
             ];
 
@@ -85,8 +87,15 @@ class AuthController extends Controller
             foreach ($contacts as $contact) {
                 $csv = [
                     $contact->id,
-                    $contact->name,
-                    $contact->department,
+                    $contact->category_id,
+                    $contact->first_name,
+                    $contact->last_name,
+                    $contact->gender,
+                    $contact->email,
+                    $contact->tel,
+                    $contact->address,
+                    $contact->building,
+                    $contact->detail,
                 ];
 
                 mb_convert_variables('SJIS-win', 'UTF-8', $csv);
