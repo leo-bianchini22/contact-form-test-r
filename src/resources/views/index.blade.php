@@ -89,7 +89,13 @@
                     <input type="text" name="tel3" placeholder="例:5678" value="{{ old('tel3') }}" />
                 </div>
                 <div class="form__error">
-                    @error('tel')
+                    @error('tel1')
+                    {{ $message }}
+                    @enderror
+                    @error('tel2')
+                    {{ $message }}
+                    @enderror
+                    @error('tel3')
                     {{ $message }}
                     @enderror
                 </div>
