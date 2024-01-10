@@ -25,4 +25,5 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/search', [AuthController::class, 'search']);
 Route::get('/admin/reset', [AuthController::class, 'reset']);
 Route::delete('/admin/delete', [AuthController::class, 'destroy']);
-Route::get('/admin/downloadCsv', [AuthController::class, 'downloadCsv']);
+// Route::get('/admin/downloadCsv', [AuthController::class, 'downloadCsv']);
+Route::get('/admin/downloadCsv', [AuthController::class, 'export']);
