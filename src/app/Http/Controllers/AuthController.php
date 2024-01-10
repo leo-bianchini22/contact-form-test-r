@@ -48,7 +48,7 @@ class AuthController extends Controller
         return view('admin', compact('contacts', 'categories'));
     }
 
-    public function downloadCsv()
+    public function downloadCsv(Request $request)
     {
         $headers = [
             'Content-Type' => 'text/csv',
@@ -58,7 +58,7 @@ class AuthController extends Controller
             'Expires' => '0',
         ];
 
-        $callback = function () {
+        $callback = function (Request $request) {
             $createCsvFile = fopen('php://output', 'w');
 
             $columns = [
@@ -78,7 +78,13 @@ class AuthController extends Controller
 
             fputcsv($createCsvFile, $columns);
 
-            $contact = DB::table('contacts');
+            // $contact = DB::table('contacts');
+
+            // $contacts = $contact
+            //     ->select(['id', 'category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail'])
+            //     ->get();
+
+            $contact = Contact::with('category')->GenderSearch($request->gender)->CategorySearch($request->category_id)->CreatedSearch($request->created_at)->KeywordSearch($request->keyword)->get();
 
             $contacts = $contact
                 ->select(['id', 'category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail'])
