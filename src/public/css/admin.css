@@ -87,11 +87,12 @@
     margin-bottom: 30px;
 }
 
-.admin-table__header button {
+.admin-table__header input {
     padding: 5px 10px;
     text-decoration: none;
     background-color: rgb(245, 240, 235);
     color: rgb(120, 100, 80);
+    border: none;
 }
 
 .admin-table__header a {

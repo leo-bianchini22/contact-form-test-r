@@ -42,9 +42,9 @@
 
     <div class="admin-table__content">
         <div class="admin-table__header">
-            <form class="downloadCsv" action="/admin/downloadCsv">
+            <form class="downloadCsv" action="{{'/export?'.http_build_query(request()->query())}}" method="post">
                 @csrf
-                <button>エクスポート</button>
+                <input class="export__btn btn" type="submit" value="エクスポート">
             </form>
             <div class="paginate">{{ $contacts->render('pagination::bootstrap-4') }}</div>
         </div>
